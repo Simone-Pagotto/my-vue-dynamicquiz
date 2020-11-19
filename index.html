@@ -37,18 +37,27 @@
 				<div class="col">
 					<!-- VUE root element -->
 					<div id="root" >
-						<div v-for="(quiz,index) in quizQuestions" class="container d-flex flex-column">
+						<div v-for="(quiz,indexQ) in quizQuestions" class="container d-flex flex-column">
 							<div class="num-question">
-								Question {{index + 1}}:
+								Question {{indexQ + 1}}:
 							</div>
 							<div class="">
 								{{quiz.question}}
 							</div>
-							<div class="container" v-for:"(answer,indexx) in quizAnswer.quiz">
-								<input type="checkbox" name="answer">
-								<label for="checkbox">{{answer}}</label>
+							<div class="container" v-for="(answer,indexA) in quiz.quizAnswer">
+								<input type="radio" :name="indexQ" :value="indexA" v-model="userAnswer[indexQ]">
+								<label for="radio">{{answer}}</label>
 							</div>
+							<!-- <div class="">
+								<div class="" v-for="el in userAnswer">
+									{{el}} - {{quiz.indexCorrectAnswer}}
+								</div>
+
+							</div> -->
 						</div>
+						<button @click = "addAnswer" type="button">L'ACCENDIAMO?</button>
+						<h1>{{correctUserAnswer}}/{{quizQuestions.length}}</h1>
+
 
 
 
