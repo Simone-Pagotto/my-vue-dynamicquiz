@@ -30,7 +30,8 @@ const app = new Vue ({
     ],
     userAnswer : [],
     correctAnswer: [],
-    correctUserAnswer: 0
+    correctUserAnswer: 0,
+    currentQuiz: 0
 
   },
   methods: {
@@ -41,6 +42,12 @@ const app = new Vue ({
           this.correctUserAnswer++;
         }
       }
+    },
+    moveNext: function(){
+      this.currentQuiz++;
+    },
+    movePrev: function(){
+      this.currentQuiz--;
     }
   }
 })
